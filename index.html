@@ -1,60 +1,57 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kỷ Niệm Lớp C8</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kỷ Niệm Lớp C8</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
-
-
-
-
-
-
-
-
-
-
 <body>
-<nav class="navbar">
-    <button class="menu-toggle" id="menuToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Trang Chủ</a></li>
-    </ul>
-</nav>
 
+  <nav class="navbar">
+      <button class="menu-toggle" id="menuToggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Trang Chủ</a></li>
+          <li><a href="index.html">Danh Sách Lớp</a></li>
+          <li><a href="index.html">Kỷ niệm 10C8</a></li>
+          <li><a href="index.html">Kỷ niệm 11C8</a></li>
+          <li><a href="index.html">Kỷ niệm 12C8</a></li>
+      </ul>
+  </nav>
 
+  <div class="header">
+      <h1>C8 - THPT Krông Nô</h1>
+      <p>Nơi lưu giữ những kỷ niệm.</p>
+  </div>
 
+  <div class="intro-section" id="gioithieu">
+      <h2>C8 - THPT Krông Nô</h2>
+      <p>
+          Chào mừng các bạn đến với trang web kỷ niệm của lớp C8. 
+          Đây là nơi chúng ta cùng nhau nhìn lại những năm tháng học trò đầy ắp tiếng cười, 
+          những buổi học, những chuyến đi, và những kỷ niệm không thể nào quên.
+      </p>
+      <h1>Ảnh Tập Thể Lớp</h1>
+      <img src="c8.png.jpeg" alt="Ảnh tập thể lớp 1"><br>
+      <img src="c8.png.jpeg" alt="Ảnh tập thể lớp 2"><br>
+      <img src="c8.png.jpeg" alt="Ảnh tập thể lớp 3"><br>
+      <img src="c8.png.jpeg" alt="Ảnh tập thể lớp 4"><br>
+      <img src="c8.png.jpeg" alt="Ảnh tập thể lớp 5"><br>
+      <img src="c8.png.jpeg" alt="Ảnh tập thể lớp 6"><br>
+  </div>
 
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-
-
-
-
-
-
-
-
-    <div class="header">
-        <h1>Lớp C8 - Khóa 2024-2027</h1>
-        <p>Nơi lưu giữ những kỷ niệm đáng nhớ của tuổi học trò.</p>
-    </div>
-    <div class="intro-section">
-        <h2>Giới Thiệu Về Lớp</h2>
-        <p>
-            Chào mừng các bạn đến với trang web kỷ niệm của lớp C8. 
-            Đây là nơi chúng ta cùng nhau nhìn lại những năm tháng học trò đầy ắp tiếng cười, 
-            những buổi học, những chuyến đi, và những kỷ niệm không thể nào quên.
-        </p>
-        <img src="c8.png.jpeg" alt="Ảnh tập thể lớp">
-    </div>
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+    });
+  </script>
 
 </body>
 </html>
