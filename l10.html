@@ -9,7 +9,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+         padding: 0;
             background-color: #f4f4f4;
             color: #333;
         }
@@ -57,17 +57,19 @@
             align-items: center;
         }
 
-        .menu-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 20px;
-            padding: 0;
-        }
+      .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    color: white;
+    font-size: 30px;
+    line-height: 1;
+}
+
 
         .menu-toggle .bar {
             width: 100%;
@@ -162,11 +164,11 @@
 <body>
 
   <nav class="navbar">
-      <button class="menu-toggle" id="menuToggle">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-      </button>
+    <button class="menu-toggle" id="menuToggle">
+    <span class="icon">☰</span>
+</button>
+
+      
       <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Trang Chủ</a></li>
           <li><a href="danhsach.html">Danh Sách Lớp</a></li>
