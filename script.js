@@ -1,5 +1,5 @@
 let password = "";
-const correctPassword = "271108";
+const correctPassword = "1759";
 const passwordInput = document.getElementById("password");
 
 function addNumber(number) {
@@ -11,7 +11,7 @@ function addNumber(number) {
 }
 
 function clearPassword() {
-  password = "1759";
+  password = "";
   passwordInput.value = password;
   passwordInput.classList.remove("active");
 }
