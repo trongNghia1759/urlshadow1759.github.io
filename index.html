@@ -658,161 +658,114 @@
 
 
 
-        // ===== Đèn lồng và lời chúc =====
-
-        const lanternContainer = document.getElementById("lantern-container");
-
-        //Sử lời chúc ở đây
-
-        const wishes = [
-
-           "Chúc 11C8 Trung Thu vui hết nấc!",
-           
-"Trăng rằm sáng, tình bạn 11C8 càng sáng hơn!",
-
-"Trung Thu này, 11C8 mãi rộn ràng tiếng cười!",
-
-"Chúc cả lớp 11C8 đoàn kết, yêu thương như trăng tròn!",
-
-"Trăng tròn, tình bạn 11C8 trọn vẹn!",
-
-"Chúc 11C8 có mùa trăng ngọt ngào và đáng nhớ!",
-
-"Trung Thu về, 11C8 thêm nhiều niềm vui!",
-
-"Chúc anh em 11C8 trung thu thật đã!",
-
-"Chúc 11C8 một đêm trăng lung linh và ấm áp!",
-
-"C8 rực rỡ như ánh trăng rằm!",
-
-"Trung Thu vui vẻ, học giỏi, cười tươi 11C8 nhé!",
-
-"Chúc cả lớp có Trung Thu đầy ắp tiếng cười!",
-
-"Trăng sáng, lòng 11C8 cũng sáng theo!",
-
-"Chúc 11C8 Trung Thu no nê và hạnh phúc!",
-
-"Chúc tập thể 11C8 luôn vui tươi, đoàn kết!",
-
-"Trung Thu này, 11C8 vẫn là số 1!",
-
-"Chúc 11C8 tràn đầy năng lượng trăng rằm!",
-
-"Trăng tròn, tình bạn 11C8 càng tròn trịa!",
-
-"Chúc 11C8 một mùa trăng thật chill!",
-
-"Cùng nhau vui Trung Thu – 11C8 muôn năm!"
-
-        ];
-
-
-
-        function createLantern() {
-
-            const lantern = document.createElement("img");
-
-            // sửa đèn lồng ở đây
-
-            lantern.src = "./den.png";
-
-            lantern.className = "lantern swing";
-
-
-
-            const layer = Math.floor(Math.random() * 3) + 1;
-
-            let size = 40, duration = 10000, opacity = 0.8;
-
-
-
-            if (layer === 1) {
-
-                size = 20 + Math.random() * 20;
-
-                duration = 14000 + Math.random() * 5000;
-
-                opacity = 0.5;
-
-            } else if (layer === 2) {
-
-                size = 30 + Math.random() * 30;
-
-                duration = 12000 + Math.random() * 4000;
-
-                opacity = 0.7;
-
-            } else {
-
-                size = 40 + Math.random() * 40;
-
-                duration = 10000 + Math.random() * 3000;
-
-                opacity = 0.95;
-
-            }
-
-
-
-            lantern.style.width = size + "px";
-
-            lantern.style.left = Math.random() * 90 + "vw";
-
-            lantern.style.bottom = "0px";
-
-            lantern.style.opacity = opacity;
-
-
-
-            lanternContainer.appendChild(lantern);
-
-
-
-            const drift = Math.random() * 140 - 70;
-
-            const up = 120 + Math.random() * 40;
-
-            lantern.animate(
-
-                [
-
-                    { transform: "translate(0,0)", opacity: opacity },
-
-                    { transform: `translate(${drift}px, -${up}vh)`, opacity: 0 }
-
-                ],
-
-                { duration: duration, easing: "linear", fill: "forwards" }
-
-            );
-
-
-
-            setTimeout(() => lantern.remove(), duration);
-
-
-
-            lantern.addEventListener("click", (e) => {
-
-                e.stopPropagation();
-
-                const wishPopup = document.getElementById("wish-popup");
-
-                wishPopup.textContent = wishes[Math.floor(Math.random() * wishes.length)];
-
-                wishPopup.style.display = "block";
-
-            });
-
-        }
-
-
-
-        setInterval(createLantern, 500);
-
-
+       // ===== Đèn lồng và lời chúc =====
+const lanternContainer = document.getElementById("lantern-container");
+
+// Danh sách các ảnh đèn lồng
+const lanternImages = [
+  "./den1.png",
+  "./den2.png",
+  "./den3.png"
+];
+
+// Lời chúc
+const wishes = [
+  "Chúc 11C8 Trung Thu vui hết nấc!",
+  
+  "Trăng rằm sáng, tình bạn 11C8 càng sáng hơn!",
+  
+  "Trung Thu này, 11C8 mãi rộn ràng tiếng cười!",
+  
+  "Chúc cả lớp 11C8 đoàn kết, yêu thương như trăng tròn!",
+  
+  "Trăng tròn, tình bạn 11C8 trọn vẹn!",
+  
+  "Chúc 11C8 có mùa trăng ngọt ngào và đáng nhớ!",
+  
+  "Trung Thu về, 11C8 thêm nhiều niềm vui!",
+  
+  "Chúc anh em 11C8 trung thu thật đã!",
+  
+  "Chúc 11C8 một đêm trăng lung linh và ấm áp!",
+  
+  "C8 rực rỡ như ánh trăng rằm!",
+  
+  "Trung Thu vui vẻ, học giỏi, cười tươi 11C8 nhé!",
+  
+  "Chúc cả lớp có Trung Thu đầy ắp tiếng cười!",
+  
+  "Trăng sáng, lòng 11C8 cũng sáng theo!",
+  
+  "Chúc 11C8 Trung Thu no nê và hạnh phúc!",
+  
+  "Chúc tập thể 11C8 luôn vui tươi, đoàn kết!",
+  
+  "Trung Thu này, 11C8 vẫn là số 1!",
+  
+  "Chúc 11C8 tràn đầy năng lượng trăng rằm!",
+  
+  "Trăng tròn, tình bạn 11C8 càng tròn trịa!",
+  
+  "Chúc 11C8 một mùa trăng thật chill!",
+  
+  "Cùng nhau vui Trung Thu – 11C8 muôn năm!"
+  
+];
+
+function createLantern() {
+  const lantern = document.createElement("img");
+
+  // Chọn ngẫu nhiên 1 ảnh trong danh sách
+  const randomSrc = lanternImages[Math.floor(Math.random() * lanternImages.length)];
+  lantern.src = randomSrc;
+  lantern.className = "lantern swing";
+
+  const layer = Math.floor(Math.random() * 3) + 1;
+  let size = 40, duration = 10000, opacity = 0.8;
+
+  if (layer === 1) {
+    size = 20 + Math.random() * 20;
+    duration = 14000 + Math.random() * 5000;
+    opacity = 0.5;
+  } else if (layer === 2) {
+    size = 30 + Math.random() * 30;
+    duration = 12000 + Math.random() * 4000;
+    opacity = 0.7;
+  } else {
+    size = 40 + Math.random() * 40;
+    duration = 10000 + Math.random() * 3000;
+    opacity = 0.95;
+  }
+
+  lantern.style.width = size + "px";
+  lantern.style.left = Math.random() * 90 + "vw";
+  lantern.style.bottom = "0px";
+  lantern.style.opacity = opacity;
+
+  lanternContainer.appendChild(lantern);
+
+  const drift = Math.random() * 140 - 70;
+  const up = 120 + Math.random() * 40;
+  lantern.animate(
+    [
+      { transform: "translate(0,0)", opacity: opacity },
+      { transform: `translate(${drift}px, -${up}vh)`, opacity: 0 }
+    ],
+    { duration: duration, easing: "linear", fill: "forwards" }
+  );
+
+  setTimeout(() => lantern.remove(), duration);
+
+  lantern.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const wishPopup = document.getElementById("wish-popup");
+    wishPopup.textContent = wishes[Math.floor(Math.random() * wishes.length)];
+    wishPopup.style.display = "block";
+  });
+}
+
+// Mỗi nửa giây tạo 1 đèn, mỗi đèn ngẫu nhiên ảnh khác nhau
+setInterval(createLantern, 500);
 
        // ===== Nhạc nền: bấm nút mới phát =====
 const bg = document.getElementById("bg-music");
